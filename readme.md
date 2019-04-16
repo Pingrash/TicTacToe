@@ -1,4 +1,4 @@
-<p>v1.1</p>
+<h3>v1.1</h3>
 
 <p>TicTacToe Project by Lachlan Mackenzie</p>
 
@@ -6,7 +6,7 @@
 
 <p>Features added by me:</p>
 <ul>
-<h4>v1.0:<h4>
+<h4>v1.0:</h4>
 <li>Added checks to stop player from choosing a square that is already taken</li>
 </ul>
 <ul>
