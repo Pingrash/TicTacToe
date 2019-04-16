@@ -1,5 +1,5 @@
 /*
-v1.0
+v1.1
 
 To-Do list:
 - Additional AI difficulties
