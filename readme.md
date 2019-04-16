@@ -6,9 +6,12 @@ The base of this project is based on a tutorial by Youtuber PortExe (https://you
 
 Features added by me:
 - Added checks to stop player from choosing a square that is already taken
+- Added menu
+- Added score counters and button to reset scores in menu
+- Added draw checks
+- Added ability to update the player name in the menu
 
 To-Do list:
-- Menu system
 - Additional AI difficulties
 - Improve visuals
-- Responsive layout for mobile and tablet
+- Fix responsive layout for phone screens

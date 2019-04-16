@@ -10,7 +10,6 @@
 </head>
 <body>
   <div class="main-container roboto">
-
     <div class="game-container no-select">
       <h1>TicTacToe</h1>
       <div class="row" id="topRow">
@@ -28,9 +27,30 @@
         <div class="square column" id="q7"></div>
         <div class="square column" id="q8"></div>
       </div>
-
+      <div id="victoryMessage"></div>
+      
     </div> <!-- end game-container -->
+    <button id="newGame" class="no-select menu-button">New Game</button>
+    
+    <button id="menuButton" class="no-select menu-button">Menu</button>
 
+    <div id="menuPane" class="no-select">
+      <h2>Menu</h2>
+      <span id="menuClose">Close</span>
+      <div id="setNameForm">
+        <input type="text" name="playerName" id="playerNameInput">
+        <button id="playerNameSubmit" class="menu-button">Set Player Name</button>
+      </div>
+      <span id="changeConfirm"></span>
+      <button id="resetScore" class="menu-button">Reset Scores</button>
+    </div> <!-- end menuPane -->
+
+    <div id="scoreContainer">
+      <div id="playerScoreDiv"><span id="scorePlayerName">Player</span> Score: <span id="playerScore">0</span></div>
+      <div id="drawScoreDiv">Draws: <span id="drawScore">0</span></div>
+      <div id="computerScoreDiv">Computer Score: <span id="computerScore">0</span></div>
+    </div>
+    
   </div> <!-- end main-container -->
 
   <script src="main.js"></script>

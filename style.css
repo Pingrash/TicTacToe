@@ -18,9 +18,8 @@ body{
 
 .main-container{
   height: 100vh;
-  width: 500px;
+  width: 100%;
   margin: auto;
-  margin-top: 1.5rem;
 }
 
 #topRow{
@@ -29,11 +28,18 @@ body{
 
 h1{
   text-align: center;
-  font-size: 35px;
+  font-size: 45px;
 }
 
 .game-container{
   position: absolute;
+  margin-top: 4rem;
+}
+
+#scoreContainer{
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
 }
 
 /* Set Grid */
@@ -53,10 +59,11 @@ h1{
   padding: 0;
   margin: 0;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .square:hover{
-  background-color: #e29c32;
+  background-color: #faa92ea9;
 }
 
 .column{
@@ -73,4 +80,82 @@ h1{
 
 #q0, #q1, #q2, #q3, #q4, #q5{
   border-bottom: 4px solid black;
+}
+
+#victoryMessage{
+  width: 308px;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 40px;
+}
+
+/* Menu Buttons */
+.menu-button{
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e29c32;
+  font-weight: 700;
+  height: 30px;
+}
+
+#newGame{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 85px;
+}
+
+#menuButton{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+#menuPane{
+  position: relative;
+  top: calc(50% - 100px);
+  left: calc(50% - 190px);
+  visibility: hidden;
+  width: 380px;
+  height: 220px;
+  background-color: gray;
+}
+
+#menuPane h2{
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 35px;
+  font-weight: 400;
+}
+
+#menuClose{
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+#setNameForm{
+  position: absolute;
+  top: 4.5rem;
+  left: calc(50% - 164.24px);
+}
+
+#playerNameInput{
+  height: 25px;
+  width: 200px;
+  padding-left: 10px;
+}
+
+#changeConfirm{
+  position: absolute;
+  top: 7.5rem;
+  /* left is set by JS */
+}
+
+#resetScore{
+  position: absolute;
+  top: 10rem;
+  left: calc(50% - 55px);
+  width: 110px;
 }
