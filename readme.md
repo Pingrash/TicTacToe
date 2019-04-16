@@ -4,10 +4,10 @@ TicTacToe Project by Lachlan Mackenzie
 
 The base of this project is based on a tutorial by Youtuber PortExe (https://youtu.be/yaPUl31nypk).
 
-Features added by me
+<p>Features added by me:<p>
 v1.0:
 - Added checks to stop player from choosing a square that is already taken
-(v1.1):
+v1.1:
 - Added menu
 - Added score counters and button to reset scores in menu
 - Added draw checks
