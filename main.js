@@ -1,10 +1,8 @@
 /*
-v1.1
+v1.2
 
 To-Do list:
-- Additional AI difficulties
 - Improve visuals
-- Fix responsive layout for phone screens
 */
 
 const winningCombos = [
@@ -30,13 +28,25 @@ const grid = () => Array.from(document.getElementsByClassName('square'));
 const squareNumId = (square) => Number.parseInt(square.id.replace('q', ''));
 
 // Returns the elements within the grid array that are empty
-const emptySquares = () => grid().filter(_square => _square.innerText === "");
+const emptySquares = (sequance) => sequance.filter(_square => _square.innerText === "");
 
 // returns the elements within the grid array that the player has taken
 const playerSquares = () => grid().filter(_square => _square.innerText === "x");
 
 // Checks an array of squares if they are all x's or o's
 const allSame = (arr) => arr.every(_square => _square.innerText === arr[0].innerText && _square.innerText !== '');
+
+const partialSame = (arr) => {
+  partial = false;
+  for (let i = 0; i < arr.length; i++) {
+    const _square = arr[i];
+    if (_square.innerText === 'x') {
+      partial = true;
+      return partial;
+    }
+  }
+  return partial;
+}
 
 // Check for draw
 const drawCheck = () => grid().every(_square => _square.innerText !== '');
@@ -64,8 +74,21 @@ const takeTurn = (index, letter) => {
   turnSuccessful = true;
 }
 // AI turn function
-// In current form uses the emptySquares function to get an array of all empty squares then chooses one at random to set to 'o' 
-const opponentChoice = () => squareNumId(emptySquares()[Math.floor(Math.random() * emptySquares().length)]);
+// In current form checks through each combo in winningCombos until it finds a partial completion by the player, it will then make it's choice based on the empty squares in that combo
+// This increases the chance of the computer blocking you and even winning if you not careful 
+const opponentChoice = () => {
+  for (let i = 0; i < winningCombos.length; i++) {
+    _c = winningCombos[i];
+    const _grid = grid();
+    const sequance = [_grid[_c[0]], _grid[_c[1]], _grid[_c[2]]];
+    if (partialSame(sequance)) {
+      if (emptySquares(sequance).length > 0) {
+        let choice = squareNumId(emptySquares(sequance)[Math.floor(Math.random() * emptySquares(sequance).length)]);
+      return choice;
+      }
+    }
+  }
+}
 
 // Change opponentChoice to first compare playerSquares to emptySquares to block player win for hard difficulty
 
@@ -74,6 +97,12 @@ const endGame = (winningSequance) => {
   disableListeners();
   let victoryMessage = document.querySelector('#victoryMessage');
 
+  if (winningSequance === 'draw') {
+    victoryMessage.innerText = "It's a draw!";
+    updateScore('draw');
+    return;
+  }
+
   winningSequance.forEach(_square => _square.style.color = 'red');
   if (playerTurn) {
     victoryMessage.innerText = `${playerName} Wins!`;
@@ -81,12 +110,6 @@ const endGame = (winningSequance) => {
   } else if (!playerTurn) {
     victoryMessage.innerText = 'Computer Wins!';
     updateScore('computer');
-  }
-
-  if (winningSequance === 'draw') {
-    victoryMessage.innerText = "It's a draw!";
-    updateScore('draw');
-    return;
   }
 }
 
@@ -100,16 +123,18 @@ const checkForVictory = () => {
     const sequence = [_grid[_combo[0]], _grid[_combo[1]], _grid[_combo[2]]];
     if (allSame(sequence)) {
       victory = true;
+      console.log('victory detected');
       endGame(sequence);
     }
   });
 
-  if (drawCheck()) {
-    console.log(drawCheck());
-    victory = true;
-    endGame('draw');
+  if (!victory) {
+    if (drawCheck()) {
+      console.log('draw check is ' + drawCheck());
+      victory = true;
+      endGame('draw');
+    } 
   }
-
   return victory;
 }
 
@@ -223,7 +248,7 @@ const setPlayerName = () => {
   let nameField = document.querySelector('#playerNameInput');
   playerName = nameField.value;
   // Update the player's name in the score table
-  document.querySelector('#scorePlayerName').innerText = playerName;
+  document.querySelector('#scorePlayerName').innerText = playerName + "'s";
   // Set confirmation message in the menu pane and set it's left position based on it's width, this means it will always be centered despite the length of the player's name
   changeConfirmSpan.innerText = `Name changed to ${playerName}`;
   changeConfirmSpan.style.left = `calc(50% - ${changeConfirmSpan.clientWidth/2}px)`

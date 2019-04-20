@@ -14,6 +14,8 @@ body{
   -moz-user-select: none;    
   -ms-user-select: none;      
   user-select: none;
+
+  -webkit-tap-highlight-color: transparent; /* Prevents blue highlight when button clicked/tapped */
 }
 
 .main-container{
@@ -59,10 +61,15 @@ h1{
   padding: 0;
   margin: 0;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.5s;
 }
 
 .square:hover{
+  background-color: #faa92ea9;
+}
+
+/* :active is used for when the square is pressed to give visual feedback for touchscreen users */
+.square:active{
   background-color: #faa92ea9;
 }
 
@@ -130,14 +137,14 @@ h1{
 
 #menuClose{
   position: absolute;
-  top: 0.5rem;
-  right: 1rem;
+  top: 0.5em;
+  right: 1em;
   cursor: pointer;
 }
 
 #setNameForm{
   position: absolute;
-  top: 4.5rem;
+  top: 4.5em;
   left: calc(50% - 164.24px);
 }
 
@@ -158,4 +165,11 @@ h1{
   top: 10rem;
   left: calc(50% - 55px);
   width: 110px;
+}
+
+@media(max-width: 650px) {
+  #scoreContainer{
+    top: 85% !important;
+    left: calc(50% - 66.075px);
+  }
 }
