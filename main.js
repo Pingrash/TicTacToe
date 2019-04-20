@@ -1,9 +1,4 @@
-/*
-v1.2
-
-To-Do list:
-- Improve visuals
-*/
+// v1.2a
 
 const winningCombos = [
   [0,1,2], // Top Horizontal
@@ -30,12 +25,10 @@ const squareNumId = (square) => Number.parseInt(square.id.replace('q', ''));
 // Returns the elements within the grid array that are empty
 const emptySquares = (sequance) => sequance.filter(_square => _square.innerText === "");
 
-// returns the elements within the grid array that the player has taken
-const playerSquares = () => grid().filter(_square => _square.innerText === "x");
-
 // Checks an array of squares if they are all x's or o's
 const allSame = (arr) => arr.every(_square => _square.innerText === arr[0].innerText && _square.innerText !== '');
 
+// Function that checks the elements of an array for any that contain the innerText of 'x'
 const partialSame = (arr) => {
   partial = false;
   for (let i = 0; i < arr.length; i++) {
@@ -89,8 +82,6 @@ const opponentChoice = () => {
     }
   }
 }
-
-// Change opponentChoice to first compare playerSquares to emptySquares to block player win for hard difficulty
 
 // Function that changes the colours of the winning squares and disables click event listeners
 const endGame = (winningSequance) => {

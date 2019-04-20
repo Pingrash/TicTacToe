@@ -1,10 +1,15 @@
-<h3>v1.2</h3>
+<h3>v1.2a</h3>
 
 <p>TicTacToe Project by Lachlan Mackenzie</p>
 
 <p>The base of this project is based on a tutorial by Youtuber PortExe (https://youtu.be/yaPUl31nypk).</p>
 
 <p>Features added by me:</p>
+<ul>
+<h4>v1.2a</h4>
+<li>Removed an unused function and other bloat in main.js</li>
+</ul>
+
 <ul>
 <h4>v1.2</h4>
 <li>Fixed responsive layout for phone screens</li>
@@ -24,9 +29,4 @@
 <ul>
 <h4>v1.0:</h4>
 <li>Added checks to stop player from choosing a square that is already taken</li>
-</ul>
-
-<ul>
-<h4>To-Do list:</h4>
-<li>Improve visuals</li>
 </ul>
