@@ -1,4 +1,5 @@
 // v1.2a
+// The base of this project is based on a tutorial by Youtuber PortExe (https://youtu.be/yaPUl31nypk)
 
 const winningCombos = [
   [0,1,2], // Top Horizontal
