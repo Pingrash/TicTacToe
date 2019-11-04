@@ -2,7 +2,7 @@
 
 TicTacToe Project by Lachlan Mackenzie
 
-Hosted Version - https://quizzical-newton-4bd2b9.netlify.com/
+Hosted Version - https://tictactoeexample.netlify.com/
 
 The base of this project is based on a tutorial by Youtuber PortExe (https://youtu.be/yaPUl31nypk).
 
